@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 public class Pro_CT_1 {
     // 햄버거 만들기
+    // 햄버거 수정
     public int solution(int[] ingredient) {
         int answer = 0;
         // 삭제 속도 빠른 linkedList
