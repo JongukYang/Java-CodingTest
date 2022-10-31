@@ -52,3 +52,14 @@ public class Pro_CT_7 {
 //         return new StringBuilder().append(n).reverse().chars().map(Character::getNumericValue).toArray();
 //     }
 // }
+
+// public int[] solution(long n) {
+//     char[] arr = new StringBuffer(String.valueOf(n)).reverse().toString().toCharArray();
+//     int[] answer = new int[arr.length];
+
+//     for(int i = 0; i < arr.length; i++){
+//         answer[i] = arr[i] - 48;
+//     }
+
+//     return answer;
+// }
