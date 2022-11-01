@@ -1,4 +1,3 @@
-
 public class Pro_CT_11 {
     public long[] solution(int x, int n) {
         long[] answer = new long[n];

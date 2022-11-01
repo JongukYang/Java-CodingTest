@@ -1,5 +1,3 @@
-package Level1;
-
 public class Pro_CT_3 {
     public static int solution(int n) {
         // n = 12 -> 1, 2, 3, 4, 6, 12

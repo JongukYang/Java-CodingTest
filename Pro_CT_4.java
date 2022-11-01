@@ -1,5 +1,3 @@
-package Level1;
-
 public class Pro_CT_4 {
     public static String solution(int num) {
         String answer = "";

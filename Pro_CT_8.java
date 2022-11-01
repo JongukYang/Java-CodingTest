@@ -1,5 +1,4 @@
-
-// char배열과 String클래스의 한 가지 중요한 차이가 있는데, 
+// char배열과 String클래스의 한 가지 중요한 차이가 있는데,
 // String객체(문자열)는 읽을수만 있을 뿐 내용을 변경할 수 없다는 것이다. 
 public class Pro_CT_8 {
     static boolean solution(String s) {

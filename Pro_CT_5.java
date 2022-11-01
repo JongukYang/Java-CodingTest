@@ -1,4 +1,3 @@
-import java.util.*;
 public class Pro_CT_5 {
     public static int solution(int n) {
         int answer = 0;
