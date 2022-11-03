@@ -17,7 +17,7 @@ public class Pro_CT_17 {
         System.out.println(sol.solution(p));
     }
 }
-// 오늘은 MOD 하기 때문에 쉬어가는날
+// 오늘은 MOD 하기 때문에 2
 
 //for (int i = 0; i < phone_number.length() - 4; i++)
 //        answer += "*";
