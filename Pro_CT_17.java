@@ -17,7 +17,7 @@ public class Pro_CT_17 {
         System.out.println(sol.solution(p));
     }
 }
-// 오늘까지 mod 합니당
+// Mod 3일차
 
 //for (int i = 0; i < phone_number.length() - 4; i++)
 //        answer += "*";
