@@ -34,4 +34,3 @@ public class Pro_CT_8 {
 
 //     return s.replaceAll("[^yY]", "").length() - s.replaceAll("[^pP]", "").length() == 0 ? true : false;
 // }
-console.log("test")
