@@ -21,3 +21,4 @@ public class Pro_CT_22 {
         System.out.println(sol.solution(s));
     }
 }
+//코테 23번 다른데 풀었음
