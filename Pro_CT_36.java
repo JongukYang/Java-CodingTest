@@ -4,7 +4,17 @@ public class Pro_CT_36 {
 //    "z"는 1만큼 밀면 "a"가 됩니다. 문자열 s와 거리 n을 입력받아 s를 n만큼 민 암호문을 만드는 함수 solution 작성
     public String solution(String s, int n) {
         String answer = "";
-
+        for(char c : s.toCharArray()) {
+            if (c == ' ') {
+                answer += c;
+            }
+            else if (c >= 'a' && c <= 'z') {
+                answer += (char)('a' + (c + n - 'a')%26);
+            }
+            else {
+                answer += (char)('A' + (c + n - 'A')%26);
+            }
+        }
         return answer;
     }
 
