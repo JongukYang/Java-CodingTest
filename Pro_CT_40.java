@@ -27,7 +27,7 @@ public class Pro_CT_40 {
         for(int i = 0; i< number.length; i++) {
             if (s.contains(number[i])) {
                 s = s.replace(number[i],num[i]);
-                
+
             }
         }
         answer = Integer.parseInt(s);
