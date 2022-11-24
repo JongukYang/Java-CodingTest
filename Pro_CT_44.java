@@ -1,4 +1,5 @@
 public class Pro_CT_44 {
+    // 오늘 클컴 과제합니다...!
 //    폰켓몬
     public int solution(int[] nums) {
         int answer = 0;
