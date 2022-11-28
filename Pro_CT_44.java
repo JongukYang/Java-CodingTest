@@ -69,3 +69,25 @@ public class Pro_CT_44 {
 //        입출력 예 #3
 //        6마리의 폰켓몬이 있으므로, 3마리의 폰켓몬을 골라야 합니다.
 //        가장 많은 종류의 폰켓몬을 고르기 위해서는 3번 폰켓몬 한 마리와 2번 폰켓몬 두 마리를 고르거나, 혹은 3번 폰켓몬 두 마리와 2번 폰켓몬 한 마리를 고르면 됩니다. 따라서 최대 고를 수 있는 폰켓몬 종류의 수는 2입니다.
+
+
+//class Solution {
+//    public int solution(int[] nums) {
+//        int answer = 0;
+//        ArrayList<Integer> array = new ArrayList<Integer>();
+//
+//        for (int i = 1; i < nums.length; i++) {
+//            if (!array.contains(nums[i])) {
+//                array.add(nums[i]);
+//            }
+//        }
+//
+//        answer = array.size();
+//
+//        if (answer > nums.length / 2) {
+//            answer = nums.length / 2;
+//        }
+//
+//        return answer;
+//    }
+//}
