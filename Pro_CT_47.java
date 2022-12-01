@@ -5,6 +5,8 @@ public class Pro_CT_47 {
     public int solution(int[] nums) {
         int answer = 0;
         int numsLength = nums.length;
+
+
         for (int i = 0; i < nums.length; i++) {
             if (numsLength-i == 2) {
                 break;
