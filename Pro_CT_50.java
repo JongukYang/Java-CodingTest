@@ -3,7 +3,8 @@ public class Pro_CT_50 {
     public int solution(int a, int b, int n) {
         int answer = 0;
 
-
+        // 알고리즘...
+        
         return answer;
     }
 
