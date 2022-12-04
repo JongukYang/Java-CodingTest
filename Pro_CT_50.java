@@ -4,7 +4,8 @@ public class Pro_CT_50 {
         int answer = 0;
 
         // 알고리즘...
-        
+        // 클컴 시험공부
+
         return answer;
     }
 
