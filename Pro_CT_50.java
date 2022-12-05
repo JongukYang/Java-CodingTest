@@ -5,6 +5,7 @@ public class Pro_CT_50 {
 
         // 알고리즘...
         // 클컴 시험공부
+        // 구기 시험공부,,,,
 
         return answer;
     }
