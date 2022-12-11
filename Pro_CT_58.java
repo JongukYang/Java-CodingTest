@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Pro_CT_58 {
+//    가장 가까운 글자
     public int[] solution(String s) {
         int[] answer = new int[s.length()];
         String[] arr = s.split("");
@@ -46,6 +47,19 @@ public class Pro_CT_58 {
 //                answer[i] = i - before;
 //                map.put(s.charAt(i), i);
 //            }
+//        }
+//        return answer;
+//    }
+//}
+
+//class Solution {
+//    public int[] solution(String s) {
+//        int[] answer = new int[s.length()];
+//        HashMap<Character,Integer> map = new HashMap<>();
+//        for(int i=0; i<s.length();i++){
+//            char ch = s.charAt(i);
+//            answer[i] = i-map.getOrDefault(ch,i+1);
+//            map.put(ch,i);
 //        }
 //        return answer;
 //    }
