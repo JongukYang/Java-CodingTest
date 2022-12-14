@@ -1,51 +1,71 @@
 import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class Pro_CT_62 {
     //    명예의 전당
     public int[] solution(int k, int[] score) {
         int[] answer = new int[score.length];
         LinkedList<Integer> linkedList = new LinkedList<Integer>();
-//        int day = 0;
-        for (int i = 0; i < score.length; i++) {
-//          첫 날
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        int day = 1;
+        for(int i =0; i<score.length; i++) {
+            // 첫 날
             if (linkedList.isEmpty()) {
                 linkedList.add(score[i]);
-                answer[i] = linkedList.getLast();
+                answer[day-1] = linkedList.getLast();
+                System.out.println("if");
             }
-            // 다른 날 점수가 더 작은 사람
-            else if (score[i] <= linkedList.getLast()) {
-                if (linkedList.size() <3) {
-                    linkedList.add(score[i]);
-                    answer[i] = linkedList.getLast();
-                } else {
-                    answer[i] = linkedList.getLast();
-                }
-            }
-            // 다른 날 점수가 더 큰 사람
-            else if (score[i] > linkedList.getLast()) {
-                if(linkedList.getFirst() > score[i]) {
-                    linkedList.add(score[i]);
-                    answer[i] = linkedList.getLast();
-                }
-                else if (linkedList.getFirst()+1 > score[i]) {
-
-                }
-                else {
-
-                }
-            }
-            // 점수가 같으면 continue
+            // 둘 째 날부터
             else {
-                continue;
+                // 명예의 전당 숫자 k 보다 작을 경우
+                if(linkedList.size() < k) {
+                    // 점수가 linkedList 의 마지막보다 같거나 작으면 맨 뒤에 add
+                    if(score[i] <= linkedList.getLast()) {
+                        linkedList.add(score[i]);
+                        answer[day-1] = linkedList.getLast();
+                    }
+                    // 점수가 linkedList 의 마지막보다 같거나 크면 같거나 작은 숫자 앞의 위치에 add
+                    else if(score[i] >= linkedList.getLast()) {
+                        for(int j = 0; j<linkedList.size(); j++) {
+                            if(score[i] >= linkedList.get(j)) {
+                                linkedList.add(j,score[i]);
+                                break;
+                            }
+                        }
+                        answer[day-1] = linkedList.getLast();
+                    }
+                }
+                // 명예의 전당 숫자 k 보다 큰 경우
+                else if(linkedList.size() >= k) {
+                    // 점수가 명예의 전당 k 내부의 마지막 요소보다 같거나 작을 경우
+                    if(score[i] <= linkedList.get(k-1)) {
+                        linkedList.add(score[i]);
+                        answer[day-1] = linkedList.get(k-1);
+                    }
+                    // 점수가 명예의 전당 k 내부의 마지막 요소보다 같거나 클 경우
+                    else if(score[i] >= linkedList.get(k-1)) {
+                        for(int j = 0; j<k; j++) {
+                            if(score[i] >= linkedList.get(j)) {
+                                linkedList.add(j, score[i]);
+                                break;
+                            }
+                        }
+                        answer[day - 1] = linkedList.get(k-1);
+                    }
+                }
             }
-            if (linkedList.size() > k) {
-                linkedList.remove(k);
-            }
+            day++;
         }
+//        System.out.println("answer[] : ");
+//        for (int i = 0; i < answer.length; i++) {
+//            System.out.println(answer[i]);
+//        }
+//        System.out.println("LinkedList : ");
+//        for(int i = 0; i<linkedList.size(); i++) {
+//            System.out.println(linkedList.get(i));
+//        }
 
-        for (int i = 0; i < answer.length; i++) {
-            System.out.println(answer[i]);
-        }
         return answer;
     }
 
