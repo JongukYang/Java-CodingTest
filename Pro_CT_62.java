@@ -24,8 +24,7 @@ public class Pro_CT_62 {
             // 다른 날 점수가 더 큰 사람
             else if (score[i] > linkedList.getLast()) {
                 if(linkedList.getFirst() > score[i]) {
-
-                    linkedList.add(i,score[i]);
+                    linkedList.add(score[i]);
                     answer[i] = linkedList.getLast();
                 }
                 else if (linkedList.getFirst()+1 > score[i]) {
