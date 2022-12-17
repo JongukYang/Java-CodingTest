@@ -9,22 +9,24 @@ public class Pro_CT_64 {
         // 제한수치보다 큰 공격력을 가진 무기를 구매해야 하는 기사는
         // 협약기관에서 정한 공격력을 가지는 무기를 구매해야 합니다.
         int answer = 0;
-        ArrayList<Integer> arrayList = new ArrayList<>();
         for(int i = 1; i<=number; i++) {
-            int factorCnt = 0;
-            for(int j = 1; j<=i; j++) {
-                if(i%j == 0) {
-                    factorCnt++;
-                }
-            }
-            arrayList.add(factorCnt);
-        }
-
-        for(int i : arrayList) {
-            System.out.println(i);
+            int factorCnt = calcFactorCnt(i);
+            answer += (factorCnt > limit) ? power : factorCnt;
         }
 
         return answer;
+    }
+    private int calcFactorCnt(int n) {
+        int factorCnt = 0;
+        for(int i = 1; i*i<=n; i++) {
+            if(n%i == 0) {
+                factorCnt++;
+                if(i*i < n) {
+                    factorCnt++;
+                }
+            }
+        }
+        return factorCnt;
     }
 
     public static void main(String[] args) {
@@ -39,3 +41,23 @@ public class Pro_CT_64 {
 //        따라서 해당 수들의 합인 21을 return 합니다.
     }
 }
+
+//    int answer = 0;
+//    ArrayList<Integer> arrayList = new ArrayList<>();
+//        for(int i = 1; i<=number; i++) {
+//                int factorCnt = 0;
+//                for(int j = 1; j<=i; j++) {
+//                if(i%j == 0) {
+//                factorCnt++;
+//                }
+//                }
+//                arrayList.add(factorCnt);
+//                }
+//
+//                for(int i = 0; i<arrayList.size(); i++) {
+//        if(arrayList.get(i) > limit) {
+//        answer+=power;
+//        } else {
+//        answer+=arrayList.get(i);
+//        }
+//        }
