@@ -1,6 +1,4 @@
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
 
 public class Pro_CT_65 {
     public String solution(String[] survey, int[] choices) {
