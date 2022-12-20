@@ -1,41 +1,34 @@
-import java.util.Stack;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 public class Pro_CT_1 {
-
-    public static int solution(int[] ingredient) {
+    // 햄버거 만들기
+    public int solution(int[] ingredient) {
         int answer = 0;
-        int bread_cnt = 0;
-        int i = 0;
-
-        Stack<Integer> stack = new Stack<>();
-        Stack<Integer> stack2 = new Stack<>();
-        // stack.push(ingredient[i]);
-        // System.out.println(stack);
-
-        while (true) {
-            // System.out.println(ingredient.length);
-            if (!(ingredient[i] == 1)) {
-                stack.push(ingredient[i]);
-                System.out.println(stack);
-                i++;
-            }
-            if (ingredient[i] == 1) {
-                stack.push(ingredient[i]);
-                System.out.println(stack);
-                i++;
-            }
-            if (i == ingredient.length) {
-                break;
+        // 삭제 속도 빠른 linkedList
+        LinkedList<Integer> linkedList = new LinkedList<Integer>();
+        for(int i = 0; i<ingredient.length; i++) {
+            linkedList.add(ingredient[i]);
+            if(linkedList.size() > 3
+                    && linkedList.get(linkedList.size()-4) == 1
+                    && linkedList.get(linkedList.size()-3) == 2
+                    && linkedList.get(linkedList.size()-2) == 3
+                    && linkedList.get(linkedList.size()-1) == 1) {
+                answer++;
+                for(int j = 0; j<4; j++) {
+                    linkedList.remove(linkedList.size()-1);
+                }
             }
         }
-
         return answer;
-        // System.out.println(answer);
     }
 
     public static void main(String[] args) {
+        Pro_CT_1 sol = new Pro_CT_1();
         int[] ingredient = { 2, 1, 1, 2, 3, 1, 2, 3, 1 };
-        System.out.println("Solution : " + solution(ingredient));
+        System.out.println(sol.solution(ingredient));
+
     }
 
 }
