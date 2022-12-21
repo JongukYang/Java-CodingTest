@@ -51,6 +51,7 @@ public class Pro_CT_67 {
                     for(String s : hashSet) {
                         // user_id 별로 초기화를 통해 index를 설정해 주었기 때문에
                         // answer[]의 user index 순서에 맞게 값 증가
+                        System.out.println(s);
                         answer[user_id.get(s)]++;
                     }
                 }
@@ -70,7 +71,6 @@ public class Pro_CT_67 {
 
             // 각 유저별로 결과 처리 메일을 받은 횟수를 배열에 담아 return
             // 신고당한 유저가 정지되면 신고를 한 유저에게 메일 보냄
-            // 신고당한 유저가 정지되면 메일을 받음
             System.out.println(sol.solution(id_list, report, k));
         }
 }
