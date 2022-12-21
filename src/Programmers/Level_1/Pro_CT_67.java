@@ -1,6 +1,8 @@
 package Programmers.Level_1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Pro_CT_67 {
@@ -8,13 +10,34 @@ public class Pro_CT_67 {
         public int[] solution(String[] id_list, String[] report, int k) {
             int[] answer = new int[id_list.length];
 
-            String[][] sarr = new String[report.length][2];
-            
-            for(int i = 0; i<report.length; i++) {
-                String[] s = report[i].split(" ");
-                sarr[i][0] = s[0];
-                sarr[i][1] = s[1];
-                System.out.println(Arrays.toString(sarr[i]));
+            ArrayList<String> arrayList = new ArrayList<>();
+            for(String s : id_list) {
+                arrayList.add(s);
+            }
+
+            HashMap<String, Integer> hashMap = new HashMap<>();
+            for(String s : report) {
+                if(!hashMap.containsKey(s)) {
+                    hashMap.put(s, 1);
+                    String[] sarr = s.split(" ");
+                    for (int i = 0; i < arrayList.size(); i++) {
+                        if (arrayList.get(i).equals(sarr[0])) {
+                            answer[i]++;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            hashMap.forEach((key,value) -> {
+                System.out.println(key + " : " + value);
+            });
+
+
+            HashMap<String, Integer> hashMap2 = new HashMap<>();
+            for(String key : hashMap.keySet()) {
+                String[] s = key.split(" ");
+                hashMap2.put(s[1], hashMap2.getOrDefault(s[1], 0) +1);
             }
 
 
@@ -28,6 +51,7 @@ public class Pro_CT_67 {
             String[] id_list = {"muzi", "frodo", "apeach", "neo"};
             // 유저 ID / 유저가 신고한 ID
             String[] report = {"muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"};
+//            String[] report = {"ryan con", "ryan con", "ryan con", "ryan con"};
             int k = 2; // k 번 이상 신고된 유저는 게시판 이용 정지
 
             // 각 유저별로 결과 처리 메일을 받은 횟수를 배열에 담아 return
