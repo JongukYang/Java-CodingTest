@@ -1,46 +1,60 @@
 package Programmers.Level_1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Pro_CT_67 {
     // 신고 결과 받기
         public int[] solution(String[] id_list, String[] report, int k) {
             int[] answer = new int[id_list.length];
 
-            ArrayList<String> arrayList = new ArrayList<>();
-            for(String s : id_list) {
-                arrayList.add(s);
+            // user의 순서 저장
+            HashMap<String, Integer> user_id = new HashMap<>();
+            // 각 user별로 자신을 신고한 user의 set 저장
+            HashMap<String, HashSet<String>> user_report = new HashMap<>();
+
+            // HashMap 초기화
+            for(int i = 0; i< id_list.length; i++) {
+                user_id.put(id_list[i], i); // 입력되는 user_id 순서대로 index 지정
+                user_report.put(id_list[i], new HashSet<>()); // user_id별로 HashSet 생성
             }
 
-            HashMap<String, Integer> hashMap = new HashMap<>();
-            for(String s : report) {
-                if(!hashMap.containsKey(s)) {
-                    hashMap.put(s, 1);
-                    String[] sarr = s.split(" ");
-                    for (int i = 0; i < arrayList.size(); i++) {
-                        if (arrayList.get(i).equals(sarr[0])) {
-                            answer[i]++;
-                            break;
-                        }
-                    }
-                }
-            }
-
-            hashMap.forEach((key,value) -> {
+            System.out.println("###  HashMap 초기화  ###");
+            System.out.println("###### user_id ######");
+            user_id.forEach((key, value) -> {
+                System.out.println(key + " : " + value);
+            });
+            System.out.println("###### user_report ######");
+            user_report.forEach((key, value) -> {
                 System.out.println(key + " : " + value);
             });
 
-
-            HashMap<String, Integer> hashMap2 = new HashMap<>();
-            for(String key : hashMap.keySet()) {
-                String[] s = key.split(" ");
-                hashMap2.put(s[1], hashMap2.getOrDefault(s[1], 0) +1);
+            // user 자신을 신고한 user의 이름 저장
+            for(String s : report) {
+                String[] sarr = s.split(" ");
+                user_report.get(sarr[1]).add(sarr[0]);
             }
 
+            System.out.println("###### 입력 후 user_report ######");
+            System.out.println("# 신고당한 user : 신고한 user #");
+            user_report.forEach((key, value) -> {
+                System.out.println(key + " : " + value);
+            });
 
+            System.out.println("#######  신고한 user가 신고당한 user 출력  #######");
+            // user별로 신고당한 횟수가 k 보다 많으면 메일 보내기
+            for(int i = 0; i<id_list.length; i++) {
+                // 자신을 신고한 user set 가져오기
+                HashSet<String> hashSet = user_report.get(id_list[i]);
+                System.out.println("신고한 user : " + hashSet + " -> 신고당한 user : " + id_list[i]);
+                // 신고한 user가 k 이상이면
+                if(hashSet.size() >= k) {
+                    for(String s : hashSet) {
+                        // user_id 별로 초기화를 통해 index를 설정해 주었기 때문에
+                        // answer[]의 user index 순서에 맞게 값 증가
+                        answer[user_id.get(s)]++;
+                    }
+                }
+            }
 
             return answer;
         }
@@ -60,26 +74,3 @@ public class Pro_CT_67 {
             System.out.println(sol.solution(id_list, report, k));
         }
 }
-
-
-
-//            // 신고당한 유저 hashmap -> 누가 신고했는지 모름
-//            ArrayList<String> arrayList = new ArrayList<>();
-//            ArrayList<String> arrayList2 = new ArrayList<>();
-//            HashMap<String, Integer> report_user = new HashMap<String, Integer>();
-//            for(int i = 0; i<report.length; i++) {
-//                String[] s = report[i].split(" ");
-//                arrayList.add(s[0]);
-//                arrayList2.add(s[0]);
-//                report_user.put(s[1], report_user.getOrDefault(s[1], 0) +1 );
-//            }
-//            report_user.forEach((key, value) -> {
-//                if(value >= k) {
-//                    System.out.println("key : " + key + "   " + value);
-//                }
-//            });
-//
-//
-//
-//            // 메일 개수 카운트
-//            HashMap<String, Integer> user = new HashMap<String, Integer>();
