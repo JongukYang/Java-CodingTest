@@ -3,6 +3,7 @@ package Programmers.Level_1;
 import java.util.Stack;
 
 public class Pro_CT_57 {
+    // 크레인
     public int solution(int[][] board, int[] moves) {
         int answer = 0;
         int executeCnt = 0;

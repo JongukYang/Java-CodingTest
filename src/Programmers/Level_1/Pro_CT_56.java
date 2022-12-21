@@ -1,6 +1,7 @@
 package Programmers.Level_1;
 
 public class Pro_CT_56 {
+    // 핸드폰 번호 키패드 
     public String solution(int[] numbers, String hand) {
         String answer = "";
         int leftpos = 10;
