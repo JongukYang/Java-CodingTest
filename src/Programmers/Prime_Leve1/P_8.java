@@ -21,6 +21,7 @@ public class P_8 {
         StringBuilder sb = new StringBuilder(new String(charArr));
         sb.reverse();
         answer = sb.toString();
+        //
         return answer;
     }
 
