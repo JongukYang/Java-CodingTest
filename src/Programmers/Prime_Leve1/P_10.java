@@ -16,6 +16,7 @@ public class P_10 {
         int min = Math.min(n, m);
         answer[0] = gcd(max, min);
         answer[1] = max*min/answer[0];
+        System.out.println(answer[0] + " " + answer[1] );
         return answer;
     }
     public int gcd(int a, int b) {
