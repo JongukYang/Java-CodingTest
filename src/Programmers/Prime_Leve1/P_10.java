@@ -11,12 +11,24 @@ package Programmers.Prime_Leve1;
 //2	5	[1, 10]
 public class P_10 {
     public int[] solution(int n, int m) {
-        int[] answer = new int[2];
-
+        int[] answer = new int[2]; // answer[0]=최대공약수, answer[1]=최소공배수
+        int max = Math.max(n, m);
+        int min = Math.min(n, m);
+        answer[0] = gcd(max, min);
+        answer[1] = max*min/answer[0];
         return answer;
     }
-
+    public int gcd(int a, int b) {
+        if(a%b == 0) {
+            return b;
+        }
+        return gcd(b, a%b);
+    }
+    // 유클리드 호제법 (Euclidean Algorithm)
     public static void main(String[] args) {
-
+        P_10 sol = new P_10();
+        int n = 3;
+        int m = 12;
+        System.out.println(sol.solution(n, m));
     }
 }
