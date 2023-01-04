@@ -15,8 +15,6 @@ public class P_12 {
             if (d[i] <= budget) {
                 answer++;
                 budget -= d[i];
-            } else if (d[i] > budget) {
-                continue;
             }
         }
         return answer;
