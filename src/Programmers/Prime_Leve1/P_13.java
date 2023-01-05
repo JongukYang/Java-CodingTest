@@ -1,4 +1,5 @@
 package Programmers.Prime_Leve1;
+
 // 시저 암호
 public class P_13 {
     public String solution(String s, int n) {
@@ -6,12 +7,12 @@ public class P_13 {
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if(c<='a' && c>='z') {
-                answer += (char)('a' + (c + n - 'a')%26);
-            } else if(c>='A' && c<='Z') {
-                answer += (char)('A' + (c + n - 'A')%26);
+            if (c >= 'a' && c <= 'z') {
+                answer += (char) ('a' + (c + n - 'a') % 26);
+            } else if (c >= 'A' && c <= 'Z') {
+                answer += (char) ('A' + (c + n - 'A') % 26);
             } else {
-                answer += ' ';
+                answer += c;
             }
         }
 
