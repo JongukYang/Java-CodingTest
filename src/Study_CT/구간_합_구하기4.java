@@ -31,8 +31,6 @@ public class 구간_합_구하기4 {
             int b = Integer.parseInt(st.nextToken());
             bw.write((input[b]-input[a-1]) + "\n");
         }
-
         bw.flush();
     }
-
 }
