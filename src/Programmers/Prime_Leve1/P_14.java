@@ -13,6 +13,7 @@ public class P_14 {
             System.out.println("binaryNum1: " + binaryNum1 + " binaryNum2: " + binaryNum2);
             // 숫자의 길이 맞추기 위해 0 삽입
             String[] binaryNum1Arr = insertZero(binaryNum1, n);
+            String[] binaryNum2Arr = insertZero(binaryNum2, n);
             System.out.println("binaryNum1Arr : "+Arrays.toString(binaryNum1Arr) + " binaryNum2Arr : "+Arrays.toString(binaryNum2Arr));
             // 한 행씩 비밀지도 맞추기
             StringBuilder sb = new StringBuilder();
