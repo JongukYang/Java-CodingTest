@@ -1,42 +1,35 @@
 package Programmers.Level_2;
 
-import java.util.Arrays;
+import java.util.*;
+
 
 // 줄 서는 방법
 public class PL2_1 {
     public int[] solution(int n, long k) {
-        int[] answer = {};
-
-        int num = 10;
-        long find = 282621L;
-
-        long[] factorial = new long[n];
-
-        for(int i = 1; i <= n; i++) {
-            factorial[i-1] = fact(n-i+1);
+        long num = 1;
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for(int i  = 1; i<=n; i++) {
+            arrayList.add(i); // 1,2,,...,n-1,n
+            num *= i; // 총 경우의 수 -> n!
         }
-        System.out.println("factorial = " + Arrays.toString(factorial));
 
-        for(int i = 1; i < n; i++) {
-            if(factorial[i-1] >= k && k >= factorial[i]) {
-                System.out.println(factorial[i-1] + " " + factorial[i]);
-                long div = k / factorial[i];
-                long rest = k % factorial[i];
-                System.out.println("div = " + div + " div*factorial[i] = " + factorial[i]*div);
-                System.out.println("rest = " + rest);
-            }
+        k--;
+
+        int[] answer = new int[n];
+        int answerArrIdx = 0;
+
+        while(n>0) {
+            num = num / n; // num = 6/3;
+            answer[answerArrIdx] = arrayList.get((int)(k / num));
+            answerArrIdx++;
+            arrayList.remove((int)(k / num));
+            k = k % num;
+            n--;
         }
 
         return answer;
     }
 
-    private long fact(int num) {
-        if(num == 1) {
-            return 1;
-        } else {
-            return num * fact(num-1);
-        }
-    }
 
     public static void main(String[] args) {
         PL2_1 p = new PL2_1();
