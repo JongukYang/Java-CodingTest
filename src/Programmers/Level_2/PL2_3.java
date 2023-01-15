@@ -5,11 +5,20 @@ import java.util.*;
 // 기능 개발
 public class PL2_3 {
     public int[] solution(int[] progresses, int[] speeds) {
-        int[] answer = {};
-        
+        int[] answer = {}; // return 값 저장되는 배열
+        int[] dayCntArr = new int[progresses.length];
+
+        HashMap hashMap = new LinkedHashMap();
+        for(int i=0; i < progresses.length; i++) {
+            hashMap.put(progresses[i], hashMap.getOrDefault(progresses[i], 0 + speeds[i]));
+        }
+        System.out.println(hashMap);
+
+        while (hashMap.i)
 
         return answer;
     }
+
 
     public static void main(String[] args) {
         PL2_3 solution = new PL2_3();
