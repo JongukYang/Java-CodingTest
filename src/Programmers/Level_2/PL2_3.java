@@ -5,20 +5,38 @@ import java.util.*;
 // 기능 개발
 public class PL2_3 {
     public int[] solution(int[] progresses, int[] speeds) {
-        int[] answer = {}; // return 값 저장되는 배열
-        int[] dayCntArr = new int[progresses.length];
 
-        HashMap hashMap = new LinkedHashMap();
-        for(int i=0; i < progresses.length; i++) {
-            hashMap.put(progresses[i], hashMap.getOrDefault(progresses[i], 0 + speeds[i]));
+        int dayCnt = 0;
+        int completed = 0;
+
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        while (!(completed == progresses.length)) {
+            System.out.println("dayCnt = " + ++dayCnt);
+
+            for(int i = 0; i < progresses.length; i++) {
+                progresses[i] += speeds[i];
+            }
+            int res = completed;
+            if(progresses[completed] >= 100) {
+                completed++;
+                for(int i = completed; i<progresses.length; i++) {
+                    if(progresses[completed] >= 100) {
+                        completed++;
+                    }
+                }
+                result.add(completed - res);
+            }
+            System.out.println("res = " + res);
+            System.out.println("completed = " + completed);
+            System.out.println("completed - res = " + (completed - res));
         }
-        System.out.println(hashMap);
-
-        while (hashMap.i)
+        int[] answer = new int[result.size()]; // return 값 저장되는 배열
+        for(int i = 0; i<answer.length; i++) {
+            answer[i] = result.get(i);
+        }
 
         return answer;
     }
-
 
     public static void main(String[] args) {
         PL2_3 solution = new PL2_3();
@@ -56,7 +74,6 @@ public class PL2_3 {
 //모든 기능이 하루에 1%씩 작업이 가능하므로, 작업이 끝나기까지 남은 일수는 각각 5일, 10일, 1일, 1일, 20일, 1일입니다. 어떤 기능이 먼저 완성되었더라도 앞에 있는 모든 기능이 완성되지 않으면 배포가 불가능합니다.
 //
 //따라서 5일째에 1개의 기능, 10일째에 3개의 기능, 20일째에 2개의 기능이 배포됩니다.
-
 
 
 //Queue<Integer> queue = new LinkedList<Integer>();
