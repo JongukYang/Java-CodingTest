@@ -5,7 +5,6 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 // 오큰수
@@ -21,27 +20,31 @@ public class BJ_CT_4 {
 
         // A 수열 초기값 입력
         st = new StringTokenizer(br.readLine()); // 3 5 2 7
-        ArrayDeque<Integer> arrayDeque = new ArrayDeque<Integer>();
-        for(int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             A[i] = Integer.parseInt(st.nextToken());
-//            arrayDeque.addLast(Integer.parseInt(st.nextToken()));
         }
 
-        for(int i = 0; i<N; i++) {
-            for (Integer n : arrayDeque) {
-                if (arrayDeque.peekFirst() < n) {
-                    bw.write(n);
-                    arrayDeque.pollFirst();
-                    break;
-                }
-                if(arrayDeque.pollLast() == n) {
-                    bw.write(-1);
-                    arrayDeque.pollLast();
-                    break;
-                }
-
+        // stack에 A 배열의 index를 저장
+        ArrayDeque<Integer> stack = new ArrayDeque<Integer>();
+        for (int i = 0; i < A.length; i++) {
+            while (!stack.isEmpty() && A[stack.peekLast()] < A[i]) {
+                A[stack.pollLast()] = A[i];
             }
+            // 스택이 비었거나 A[stack.peek()]가 A[i]보다 작은 경우 stack에 push
+            stack.addLast(i);
         }
+
+        // 끝나고 스택에 남은 index에 해당하는 A배열의 값은 자신보다 큰 수가 없기 떄문에 -1로 초기화
+        while (!stack.isEmpty()) {
+            A[stack.pollLast()] = -1;
+        }
+
+        // 출력
+        for(int i =0; i<A.length; i++) {
+            bw.write(A[i] + " ");
+        }
+
+
         bw.flush();
 
     }
