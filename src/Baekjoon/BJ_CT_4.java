@@ -43,10 +43,7 @@ public class BJ_CT_4 {
         for(int i =0; i<A.length; i++) {
             bw.write(A[i] + " ");
         }
-
-
         bw.flush();
-
     }
 }
 
