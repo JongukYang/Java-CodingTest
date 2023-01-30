@@ -5,7 +5,6 @@ import java.util.ArrayDeque;
 public class PL2_15 {
     // 짝지어 제거하기
     public int solution(String s) {
-        int answer = 0;
         char[] c = s.toCharArray();
         ArrayDeque<Character> stack = new ArrayDeque<>();
         for(int i = 0; i < c.length; i++) {
