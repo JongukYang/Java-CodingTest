@@ -21,7 +21,7 @@ public class 오큰수 {
         ArrayDeque<Integer> stack = new ArrayDeque<>();
         int[] answer = new int[N];
         for(int i = A.length-1; i >= 0; i--) {
-            while (!stack.isEmpty() && stack.peekLast() <= A[i]) {
+            while (!stack.isEmpty() && (stack.peekLast() <= A[i])) {
                 stack.pollLast();
             }
             stack.addLast(A[i]);
