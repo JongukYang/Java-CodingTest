@@ -9,32 +9,17 @@ public class PL2_19 {
     // 구명보트 - 탐욕법(Greedy)
     public int solution(int[] people, int limit) {
         int answer = 0;
+        Arrays.sort(people);
 
-        Integer[] integers = new Integer[people.length];
-        for(int i = 0; i<people.length; i++) {
-            integers[i] = people[i];
+        int j = 0;
+        for (int i = people.length-1; i>=j; i--) {
+            if (people[j] + people[i] <= limit) {
+                j++;
+            }
+            answer++;
         }
 
-        // 내림차순 정렬
-        Arrays.sort(integers, new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2-o1;
-            }
-        });
-
-
-        int j = integers.length-1;
-        int cnt = 0;
-        for (int i = 0; i <= j; i++) {
-            if (integers[i] + integers[j] <= limit) {
-                j--;
-            }
-            cnt++;
-        }
-
-
-        return answer+cnt;
+        return answer;
     }
 
     public static void main(String[] args) {
@@ -45,6 +30,36 @@ public class PL2_19 {
     }
 }
 
+//// 구명보트 - 탐욕법(Greedy)
+//    public int solution(int[] people, int limit) {
+//        int answer = 0;
+//
+//        Integer[] integers = new Integer[people.length];
+//        for(int i = 0; i<people.length; i++) {
+//            integers[i] = people[i];
+//        }
+//
+//        // 내림차순 정렬
+//        Arrays.sort(integers, new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer o1, Integer o2) {
+//                return o2-o1;
+//            }
+//        });
+//
+//
+//        int j = integers.length-1;
+//        int cnt = 0;
+//        for (int i = 0; i <= j; i++) {
+//            if (integers[i] + integers[j] <= limit) {
+//                j--;
+//            }
+//            cnt++;
+//        }
+//
+//
+//        return answer+cnt;
+//    }
 
 //int mid = limit/2;
 //        Arrays.sort(people); // 오름차순
