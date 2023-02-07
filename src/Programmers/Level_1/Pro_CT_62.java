@@ -1,14 +1,12 @@
 package Programmers.Level_1;
 
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 
 public class Pro_CT_62 {
     //    명예의 전당
     public int[] solution(int k, int[] score) {
         int[] answer = new int[score.length];
         LinkedList<Integer> linkedList = new LinkedList<Integer>();
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
         int day = 1;
         for(int i =0; i<score.length; i++) {
             // 첫 날
