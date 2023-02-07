@@ -7,11 +7,22 @@ public class PL2_17 {
     public String solution(int[] numbers) {
         // numbers 배열을 String 변환
         String[] sArr = new String[numbers.length];
+
         for (int i = 0; i < sArr.length; i++) {
             sArr[i] = Integer.toString(numbers[i]);
         }
 
         System.out.println(Arrays.toString(sArr));
+
+
+//        ArrayList<String> list = new ArrayList<>();
+//        for(int n :numbers){
+//            list.add(Integer.toString(n));
+//        }
+//
+//        System.out.println(list);
+//        Collections.sort(list);
+//        System.out.println(list);
 
         // String으로 변환된 sArr[] 원소들을 사전순으로 내림차순 정렬
         // Arrays.sort 재정의
@@ -47,7 +58,8 @@ public class PL2_17 {
 
     public static void main(String[] args) {
         PL2_17 p2 = new PL2_17();
-        int[] numbers = {3, 30, 34, 5, 9};
+        int[] numbers = {6,10,2};
+//        int[] numbers = {3, 30, 34, 5, 9};
         System.out.println(p2.solution(numbers)); //9 5 34 3 30
     }
 }
