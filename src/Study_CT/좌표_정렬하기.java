@@ -40,8 +40,8 @@ public class 좌표_정렬하기 {
         });
 
         for (Coordinate coordinate : coordinates) {
-            System.out.println("coordinate = " + coordinate);
-//            bw.write();
+//            System.out.println("coordinate = " + coordinate);
+            bw.write(coordinate.x + " " + coordinate.y +"\n");
         }
 
         bw.flush();
