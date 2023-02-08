@@ -29,9 +29,9 @@ public class 수_정렬하기3 {
             cnt[x]++;
         }
 
-        for (int i = 0; i <= MAX; i++) {
+        for (int i = 0; i <= MAX; i++) { // O(K)
             for (int j = 0; j < cnt[i]; j++) {
-                bw.write(i + "\n");
+                bw.write(i + "\n"); // O(N)
             }
         }
         bw.flush();
