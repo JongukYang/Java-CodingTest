@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 
 // 디펜스 게임 - lv2
-// 우선순위 큐
+// 우선순위 큐 - PriorityQueue
 public class 디펜스_게임 {
     public int solution(int n, int k, int[] enemy) {
         int answer = 0;
