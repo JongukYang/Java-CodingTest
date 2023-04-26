@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BFS_아기상어 {
+    // 백준 골드 3
     private static class Node {
         int r, c;
         int dist;
