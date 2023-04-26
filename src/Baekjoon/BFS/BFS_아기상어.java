@@ -27,7 +27,7 @@ public class BFS_아기상어 {
     private static int babySharkSize = 2;
     private static int babySharkEatenFishCnt = 0;
     private static ArrayDeque<Node> babySharkPosQueue;
-    private static ArrayList<Node> canEatfishPosList;
+    private static ArrayList<Node> canEatFishPosList;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -52,7 +52,7 @@ public class BFS_아기상어 {
 
         while (true) {
             dist = new int[N][N]; // 거리 측정 배열
-            canEatfishPosList = new ArrayList<>();
+            canEatFishPosList = new ArrayList<>();
             while (!babySharkPosQueue.isEmpty()) {
                 Node babySharkPos = babySharkPosQueue.pollFirst();
                 for (int i = 0; i < 4; i++) {
@@ -72,7 +72,7 @@ public class BFS_아기상어 {
                         babySharkPosQueue.addLast(new Node(nr, nc, dist[nr][nc]));
                         // 먹을 수 있는 물고기라면
                         if (MAP[nr][nc] != 0 && MAP[nr][nc] < babySharkSize) {
-                            canEatfishPosList.add(new Node(nr, nc, dist[nr][nc]));
+                            canEatFishPosList.add(new Node(nr, nc, dist[nr][nc]));
                         }
                         printMAP(dist);
                     }
@@ -80,30 +80,30 @@ public class BFS_아기상어 {
             }
 
             // 먹을 수 있는 물고기가 없을 때 리턴
-            if (canEatfishPosList.size() == 0) {
+            if (canEatFishPosList.size() == 0) {
                 System.out.println(ANSWER);
                 return;
             }
 
             // 현재 먹을 수 있는 물고기가 있을 때 (여러마리 일 수 있음)
-            Node nowFish = canEatfishPosList.get(0); // 초기 첫 번째 물고기 선택
+            Node nowFish = canEatFishPosList.get(0); // 초기 첫 번째 물고기 선택
             // 물고기들 간에 상어와의 거리 비교하기
-            for (int i = 1; i < canEatfishPosList.size(); i++) {
+            for (int i = 1; i < canEatFishPosList.size(); i++) {
                 // 현재 고른 물고기와의 거리가 다음 물고기와의 거리보다 클 때 작은거 선택
-                if (nowFish.dist > canEatfishPosList.get(i).dist) {
-                    nowFish = canEatfishPosList.get(i);
+                if (nowFish.dist > canEatFishPosList.get(i).dist) {
+                    nowFish = canEatFishPosList.get(i);
                 }
                 // 현재 고른 물고기와의 거리가 다음 물고기와의 거리와 같을 때 좌표상의 위치 비교하기
-                else if (nowFish.dist == canEatfishPosList.get(i).dist) {
+                else if (nowFish.dist == canEatFishPosList.get(i).dist) {
                     // 현재 고른 물고기가 더 아래 행이라면 -> 다음 물고기 선택 : 행 위치상 높은거 선택
-                    if (nowFish.r > canEatfishPosList.get(i).r) {
-                        nowFish = canEatfishPosList.get(i);
+                    if (nowFish.r > canEatFishPosList.get(i).r) {
+                        nowFish = canEatFishPosList.get(i);
                     }
                     // 두 물고기가 서로 같은 행에 있다면
-                    else if (nowFish.r == canEatfishPosList.get(i).r) {
+                    else if (nowFish.r == canEatFishPosList.get(i).r) {
                         // 더 왼쪽꺼 선택
-                        if (nowFish.c > canEatfishPosList.get(i).c) {
-                            nowFish = canEatfishPosList.get(i);
+                        if (nowFish.c > canEatFishPosList.get(i).c) {
+                            nowFish = canEatFishPosList.get(i);
                         }
                     }
                 }
