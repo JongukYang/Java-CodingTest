@@ -14,7 +14,7 @@ public class Pro_CT_3 {
     }
 
     public static void main(String[] args) {
-        int n = 12;
+        int n = 12; //지역변수
         System.out.println(solution(n));
     }
 }

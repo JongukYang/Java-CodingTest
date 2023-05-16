@@ -90,6 +90,7 @@ public class BFS_다리만들기 {
                     queue.addLast(new Node(nr, nc, now.dist + 1));
                 } else {
                     ANSWER = Math.min(ANSWER, now.dist);
+                    return;
                 }
             }
         }
