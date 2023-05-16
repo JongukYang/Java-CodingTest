@@ -41,7 +41,7 @@ public class 테트로미노 {
         // 백트래킹 dfs 풀기
         visited = new boolean[N][M];
         for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
+            for (int j = 0; j < M; j++) {
                 visited[i][j] = true;
                 dfs(new Node(i, j), 1, map[i][j]);
                 visited[i][j] = false;
