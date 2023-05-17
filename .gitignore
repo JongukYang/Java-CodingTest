@@ -24,3 +24,6 @@ hs_err_pid*
 .DS_Store
 src/SWEA/D2/input.txt
 src/SWEA/D2/output.txt
+*.txt
+*.txt
+out/production/Java-CodingTest/SWEA/D3/input.txt
