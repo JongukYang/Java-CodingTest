@@ -1,7 +1,7 @@
 package Programmers.Algorithm.hash;
 
 import java.util.*;
-class Solution {
+public class 완주하지못한선수 {
     public String solution(String[] participant, String[] completion) {
         HashMap<String, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < participant.length; i++) {
@@ -25,7 +25,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution s = new Solution();
+        완주하지못한선수 s = new 완주하지못한선수();
         String[] participant = new String[]{"marina", "josipa", "nikola", "vinko", "filipa"};
         String[] completion = new String[]{"josipa", "filipa", "marina", "nikola"};
         System.out.println(s.solution(participant, completion));
