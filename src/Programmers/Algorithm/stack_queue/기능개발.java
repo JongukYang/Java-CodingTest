@@ -2,7 +2,7 @@ package Programmers.Algorithm.stack_queue;
 import java.util.*;
 public class 기능개발 {
 
-    static class Solution {
+    private static class Solution {
         public int[] solution(int[] progresses, int[] speeds) {
             ArrayDeque<Integer> queue = new ArrayDeque<>();
             ArrayDeque<Integer> speedsQueue = new ArrayDeque<>();

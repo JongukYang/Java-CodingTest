@@ -2,7 +2,7 @@ package Programmers.Algorithm.hash;
 
 import java.util.*;
 public class 완주하지못한선수 {
-    public String solution(String[] participant, String[] completion) {
+    private String solution(String[] participant, String[] completion) {
         HashMap<String, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < participant.length; i++) {
             hashMap.put(participant[i], hashMap.getOrDefault(participant[i], 0) + 1);

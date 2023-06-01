@@ -3,7 +3,7 @@ package Programmers.Algorithm.hash;
 import java.util.*;
 
 public class 의상 {
-    static class Solution {
+    private static class Solution {
         public int solution(String[][] clothes) {
             int answer = 0;
             HashMap<String, Integer> hashMap = new HashMap<>();

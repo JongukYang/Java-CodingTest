@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Stack;
 
 public class 같은숫자는싫어 {
-    static class Solution {
+    private static class Solution {
         public int[] solution(int[] arr) {
             ArrayDeque<Integer> stack = new ArrayDeque<>();
             for (int i = 0; i < arr.length; i++) {

@@ -2,7 +2,7 @@ package Programmers.Algorithm.hash;
 
 import java.util.*;
 public class 폰켓몬 {
-    public int solution(int[] nums) {
+    private int solution(int[] nums) {
         HashSet<Integer> hashSet = new HashSet<>();
         for (int i = 0; i < nums.length; i++) {
             hashSet.add(nums[i]);

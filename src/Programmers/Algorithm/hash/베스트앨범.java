@@ -2,7 +2,7 @@ package Programmers.Algorithm.hash;
 
 import java.util.*;
 public class 베스트앨범 {
-    static class Solution {
+    private static class Solution {
         private static class Node {
             int idx;
             String genre;
