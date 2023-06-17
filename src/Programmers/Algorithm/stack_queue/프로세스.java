@@ -11,6 +11,14 @@ public class 프로세스 {
                 this.priority = priority;
                 this.idx = idx;
             }
+
+            @Override
+            public String toString() {
+                return "Node{" +
+                        "priority=" + priority +
+                        ", idx=" + idx +
+                        '}';
+            }
         }
         public int solution(int[] priorities, int location) {
             int answer = 0;
